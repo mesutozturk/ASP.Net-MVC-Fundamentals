@@ -1,0 +1,16 @@
+﻿@import 'https://fonts.googleapis.com/css?family=Coda&subset=latin-ext';
+/*  font-family: 'Coda', cursive; */
+@import 'https://fonts.googleapis.com/css?family=Kaushan+Script&subset=latin-ext';
+
+/* font-family: 'Kaushan Script', cursive;*/
+body {
+    font-family: Coda, cursive;
+    background-color: #fafafa;
+    color: #e95454;
+}
+
+#content, #content .div {
+    font-family: 'Kaushan Script', cursive;
+    background-color: #d2f2fc;
+    color: #e93c3c;
+}

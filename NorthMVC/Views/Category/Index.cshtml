@@ -1,0 +1,53 @@
+﻿@model List<Category>
+@{
+    ViewBag.Title = "Tüm Kategoriler";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-2">
+        <div class="row">
+            <div class="col-md-2">
+                <a href="@Url.Action("Yeni")" class="btn btn-success btn-block" role="button">Yeni Kategori Ekle</a>
+            </div>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr class="success">
+                    <th>#</th>
+                    <th>Kategori Adı</th>
+                    <th>Açıklama</th>
+                    <th>Ürün Sayisi</th>
+                    <th>Düzenle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int sayac = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    sayac++;
+                    <tr>
+                        <th scope="row">@sayac</th>
+                        <td>@item.CategoryName</td>
+                        <td>@item.Description</td>
+                        <td>@item.Products.Count</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a href="@Url.Action("Detay", "Category", new { id = item.CategoryID })" class="btn btn-success btn-block"
+                                       role="button">Düzenle</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="@Url.Action("Sil", "Category", new { id = item.CategoryID })" class="btn btn-warning btn-block"
+                                       role="button">Sil</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

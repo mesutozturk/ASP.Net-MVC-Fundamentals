@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 ASP.Net MVC Db First", "01 ASP.Net MVC Db First", "{6A7B15D9-78D6-4506-BE16-67874421C016}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthMVC", "NorthMVC\NorthMVC.csproj", "{B0AAA82C-B510-48AB-9AF1-882ABD646967}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0AAA82C-B510-48AB-9AF1-882ABD646967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0AAA82C-B510-48AB-9AF1-882ABD646967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0AAA82C-B510-48AB-9AF1-882ABD646967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0AAA82C-B510-48AB-9AF1-882ABD646967}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0AAA82C-B510-48AB-9AF1-882ABD646967} = {6A7B15D9-78D6-4506-BE16-67874421C016}
+	EndGlobalSection
+EndGlobal

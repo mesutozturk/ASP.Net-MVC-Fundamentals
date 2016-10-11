@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row" id="banner">
+            <div class="jumbotron">
+                <h1>North Pazar Programı</h1>
+                <p>Ürünlerinizi Yönetin</p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button">Haydi Başla</a></p>
+            </div>
+        </div>
+        <div class="row" id="menu">
+            menu   In malesuada semper mi, id sollicitudin urna fermentum ut fusce varius nisl.
+        </div>
+        <div class="row" id="content">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="row" id="footer">
+            footer            Sapien elit in malesuada semper mi, id sollicitudin urna fermentum.
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/app.js"></script>
+</body>
+</html>

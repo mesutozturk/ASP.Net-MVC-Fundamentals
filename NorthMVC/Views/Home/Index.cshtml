@@ -1,0 +1,13 @@
+﻿@*
+    @using NorthMVC.Models 2. yöntem
+*@
+@model List<Category>
+@{
+    ViewBag.Title = "Ana Sayfa";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<p>Toplam @Model.Count adet Kategorimiz Bulunmakta</p>
+@foreach (var item in Model)
+{
+    <span>@item.CategoryName</span><br />
+}
