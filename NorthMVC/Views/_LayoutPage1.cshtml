@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -18,7 +17,24 @@
             </div>
         </div>
         <div class="row" id="menu">
-            menu   In malesuada semper mi, id sollicitudin urna fermentum ut fusce varius nisl.
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6" aria-expanded="false">
+                            <span class="sr-only">Menüyü Aç</span> <span class="icon-bar"></span>
+                            <span class="icon-bar"></span> <span class="icon-bar"></span>
+                        </button>
+                        <a href="@Url.Action("Index","Home")" class="navbar-brand">North Pazar</a>
+                    </div>
+                    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-6" aria-expanded="false" style="height: 1px;">
+                        <ul class="nav navbar-nav">
+                            <li><a href="@Url.Action("Index","Home")">Ana Sayfa</a></li>
+                            <li><a href="@Url.Action("Index","Category")">Kategoriler</a></li>
+                            <li><a href="#">Link</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
         <div class="row" id="content">
             <div class="container">
