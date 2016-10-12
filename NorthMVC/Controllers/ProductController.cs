@@ -50,5 +50,58 @@ namespace NorthMVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Detay", new { id = urun.ProductID });
         }
+        public ActionResult Yeni()
+        {
+            NorthwindEntities db = new NorthwindEntities();
+            var kategoriler = new List<SelectListItem>();
+            kategoriler.Add(new SelectListItem()
+            {
+                Text = "Kategorisi Yok",
+                Value = "null"
+            });
+            db.Categories.ToList().ForEach(x =>
+                kategoriler.Add(new SelectListItem
+                {
+                    Text = x.CategoryName,
+                    Value = x.CategoryID.ToString()
+                })
+            );
+            ViewBag.Kategoriler = kategoriler;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Yeni(Product urun)
+        {
+            NorthwindEntities db = new NorthwindEntities();
+            var kategoriler = new List<SelectListItem>();
+            kategoriler.Add(new SelectListItem()
+            {
+                Text = "Kategorisi Yok",
+                Value = "null"
+            });
+            db.Categories.ToList().ForEach(x =>
+                kategoriler.Add(new SelectListItem
+                {
+                    Text = x.CategoryName,
+                    Value = x.CategoryID.ToString()
+                })
+            );
+            ViewBag.Kategoriler = kategoriler;
+
+            if (!ModelState.IsValid)
+                return View(urun);
+            try
+            {
+                db.Products.Add(urun);
+                db.SaveChanges();
+                return RedirectToAction("Detay", new { id = urun.ProductID });
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(urun);
+            }
+        }
     }
 }
