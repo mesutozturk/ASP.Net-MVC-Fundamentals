@@ -103,5 +103,28 @@ namespace NorthMVC.Controllers
                 return View(urun);
             }
         }
+
+        public JsonResult UrunDetay(int? id)
+        {
+            if (id == null)
+            {
+                return Json(new
+                {
+                    success = false
+                }, JsonRequestBehavior.AllowGet);
+            }
+            NorthwindEntities db = new NorthwindEntities();
+            var urun = db.Products.Find(id.Value);
+            return Json(new
+            {
+                success = true,
+                data = new
+                {
+                    id = urun.ProductID,
+                    name = urun.ProductName,
+                    price = urun.UnitPrice
+                }
+            }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

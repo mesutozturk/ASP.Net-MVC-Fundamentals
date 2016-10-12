@@ -5,7 +5,7 @@
 }
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-4">
         @using (Html.BeginForm("Duzenle", "Category", FormMethod.Post, new { @class = "form-horizontal" }))
         {
             <div class="form-group">
@@ -27,5 +27,61 @@
                 </div>
             </div>
         }
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-2">
+                <a href="@Url.Action("Yeni")" class="btn btn-info btn-block" role="button">Yeni Ürün</a>
+            </div>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr class="success">
+                    <th>#</th>
+                    <th>Ürün Adı</th>
+                    <th>Fiyat</th>
+                    <th>Adedi</th>
+                    <th>Stok</th>
+                    <th>Düzenle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int sayac = 0;
+                    string durum = string.Empty;
+                }
+                @foreach (var item in Model.Products)
+                {
+                    sayac++;
+                    if (item.UnitsInStock == 0)
+                    { durum = "danger"; }
+                    else if (item.UnitsInStock > 0 && item.UnitsInStock <= 10)
+                    { durum = "warning"; }
+                    else if (item.UnitsInStock > 10 && item.UnitsInStock <= 20)
+                    { durum = "info"; }
+                    else
+                    { durum = "success"; }
+                    <tr class="@durum">
+                        <th scope="row">@sayac</th>
+                        <td>@item.ProductName</td>
+                        <td>@string.Format("{0:c2}", item.UnitPrice)</td>
+                        <td>@item.QuantityPerUnit</td>
+                        <td>@item.UnitsInStock</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a href="@Url.Action("Detay", "Product", new { id = item.ProductID })" class="btn btn-success btn-block"
+                                       role="button">Düzenle</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="@Url.Action("Sil", "Product", new { id = item.ProductID })" class="btn btn-warning btn-block"
+                                       role="button">Sil</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
