@@ -14,5 +14,11 @@ namespace NorthMVC.Controllers
         {
             return View(new NorthwindEntities().Products.ToList());
         }
+        public ActionResult Detay(int? id)
+        {
+            if (id == null)
+                return RedirectToAction("Index");
+            return View(new NorthwindEntities().Products.Find(id));
+        }
     }
 }
