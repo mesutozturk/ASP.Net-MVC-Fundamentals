@@ -1,0 +1,52 @@
+﻿@model Product
+@{
+    ViewBag.Title = Model.ProductName + " Detayı";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Duzenle", "Product", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="form-group">
+                @Html.LabelFor(x => x.Category.CategoryName, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.Kategoriler)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.ProductName, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(x => x.ProductName, new { placeholder = "Ürün Adı", @class = "form-control" })
+                </div>
+            </div>
+            @Html.HiddenFor(x => x.ProductID)
+            <div class="form-group">
+                @Html.LabelFor(x => x.UnitPrice, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(x => x.UnitPrice, new
+               {
+                   placeholder = "Fiyat",
+                   @class = "form-control"
+               })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.QuantityPerUnit, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(x => x.QuantityPerUnit, new { placeholder = "Paketteki ürün adedi", @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.UnitsInStock, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10">
+                    @Html.TextBoxFor(x => x.UnitsInStock, new { placeholder = "Adet", @class = "form-control", type = "number" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Güncelle</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
